@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: "POS Systems"
+  description: "POS Systems"
+  version: 1.0.0
+  contact:
+    name: "POS Systems"
+    email: "pos@gmail.com"
+servers:
+  - url: 'https://localhost:8080'
+paths:
+  "/orders":
+    get:
+      summary: "Get all orders"
+      responses:
+        '200':
+          description: "A list of orders"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Orders"
+
+
+components:
+  schemas:
+    Orders:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+        name:
+          type: "string"
+        price:
+          type: "number"
+        quantity:
+          type: "integer"
+        total:
+          type: "number"
+  
